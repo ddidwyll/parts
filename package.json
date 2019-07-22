@@ -26,8 +26,10 @@
     "sirv-cli": "^0.4.4",
     "svelte": "^3.6.5",
     "svelte-material-icons": "file:~/svelte-material-icons",
-    "svelte-persist": "file:~/svelte-persist",
-    "svelte-router": "file:~/svelte-router"
+    "svelte-persist": "file:~/svelte-persist"
+  },
+  "dependencies": {
+    "svelte3-router": "file:~/svelte-router"
   },
   "scripts": {
     "build": "rollup -c",
