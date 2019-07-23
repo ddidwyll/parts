@@ -20,7 +20,7 @@ const catalog = persist('catalog', {
       id: '1',
       type: '1',
       name: 'Apple',
-      alias: 'аппл;эппл;фззду;fggk;\'ggk'
+      alias: "аппл;эппл;фззду;fggk;'ggk"
     },
     {
       id: '2',
@@ -33,6 +33,7 @@ const catalog = persist('catalog', {
       type: '1',
       name: 'Nokia',
       alias: 'нокиа;тщлшф;yjrbf'
+    },
     {
       id: '4',
       type: '1',
@@ -89,7 +90,7 @@ const catalog = persist('catalog', {
       id: '1',
       type: '1',
       name: 'Дисплей',
-      alias: 'lbcgktq;display;вшыздфн;экран;\'rhfy'
+      alias: "lbcgktq;display;вшыздфн;экран;'rhfy"
     },
     {
       id: '2',
