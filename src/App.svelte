@@ -1,6 +1,5 @@
 <Header>
   <Title />
-  <Search />
 </Header>
 
 <Main>

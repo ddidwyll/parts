@@ -1,8 +1,8 @@
 <svelte:head>
-  <title>AllZip {title || ''}</title>
+  <title>allZip {title || ''}</title>
 </svelte:head>
 
-<h1>{title || 'AllZip'}</h1>
+<h1>{title || 'allZip'}</h1>
 
 <script>
   import router from 'svelte3-router'
