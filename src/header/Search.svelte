@@ -1,6 +1,6 @@
 <Input
   block
-  label="Search"
+  label="Поиск"
   autofocus
   on:input={e => router.go({ query: e.detail || null })}
   value={$router.query}>

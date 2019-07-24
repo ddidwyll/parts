@@ -21,7 +21,8 @@ const catalog = persist('catalog', {
       id: '1',
       type: '1',
       name: 'Apple',
-      alias: "аппл;эппл;фззду;fggk;'ggk;iphone;айфон;шзрщту;fqajy"
+      alias:
+        "аппл;эппл;фззду;fggk;'ggk;iphone;айфон;шзрщту;fqajy;ujdyj;говно"
     },
     {
       id: '2',

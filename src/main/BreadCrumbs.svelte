@@ -1,28 +1,36 @@
 <div>
   {#if $router.type}
-    <Button clean label="Каталог" on:click={() => catalog.chType(null)} />
-    <Button clean
-      label="{type.name || '404'}"
+    <Button
+      clean
+      label="Каталог"
+      on:click={() => catalog.chType(null)} />
+    <Button
+      clean
+      label={type.name || '404'}
       on:click={() => catalog.chType(type.id || null)} />
   {/if}
   {#if $router.prod}
-    <Button clean
-      label="{prod.name || '404'}"
+    <Button
+      clean
+      label={prod.name || '404'}
       on:click={() => catalog.chProd(prod.id || null)} />
   {/if}
   {#if $router.model}
-    <Button clean
-      label="{model.name || '404'}"
+    <Button
+      clean
+      label={model.name || '404'}
       on:click={() => catalog.chModel(model.id || null)} />
   {/if}
   {#if $router.cat}
-    <Button clean
-      label="{cat.name || '404'}"
+    <Button
+      clean
+      label={cat.name || '404'}
       on:click={() => catalog.chCat(cat.id || null)} />
   {/if}
   {#if $router.subcat}
-    <Button clean
-      label="{subcat.name || '404'}"
+    <Button
+      clean
+      label={subcat.name || '404'}
       on:click={() => catalog.chSubcat(subcat.id || null)} />
   {/if}
 </div>
@@ -45,6 +53,5 @@
   div {
     display: flex;
     flex-direction: row;
-    margin-bottom: 0.8rem;
   }
 </style>

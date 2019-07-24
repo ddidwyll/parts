@@ -1,16 +1,19 @@
-<Search />
-<br />
+<div>
+  <Search />
+</div>
 {#if $router.type}
   <BreadCrumbs />
 {/if}
 {#each $catalog.type as type}
   {#if !$router.type || ($router.type === type.id && !$router.prod)}
     {#if !$router.type && prods(type.id).length}
-      <Button
-        clean
-        on:click={() => router.go({ type: type.id, query: null })}>
-        {type.name}
-      </Button>
+      <div>
+        <Button
+          clean
+          on:click={() => router.go({ type: type.id, query: null })}>
+          {type.name}
+        </Button>
+      </div>
     {/if}
     <div hidden={!prods(type.id).length}>
       {#each prods(type.id) as prod}
@@ -24,6 +27,7 @@
                 : null
             })}>
           {prod.name}
+          <img src="/img/{prod.id}.png" />
         </Button>
       {/each}
     </div>
@@ -59,18 +63,17 @@
   import { Button } from 'forui'
   import Search from '../header/Search.svelte'
 
+  const index = (obj, string) =>
+    (obj.name + obj.alias).toLowerCase().indexOf(string)
+
   const search = (obj, string = $router.search) =>
-    !string
-      ? 0
-      : !~string.indexOf(' ')
-        ? (obj.name + obj.alias).toLowerCase().indexOf(string)
+    string
+      ? !~string.indexOf(' ')
+        ? index(obj, string)
         : string
           .split(' ')
-          .reduce(
-            (acc, str) =>
-              acc + (obj.name + obj.alias).toLowerCase().indexOf(str),
-            string.split(' ').length
-          ) - string.split(' ').length
+          .reduce((acc, str) => acc + index(obj, str), 0)
+      : 100
 
   const sort = (a, b) => (a.name < b.name ? -1 : 1)
 
@@ -112,9 +115,17 @@
   div {
     display: flex;
     flex-direction: row;
-    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
   }
-  div > :global(*) {
+  :global(div) {
+    margin: 3px 2px;
+  }
+  div:first-child {
+    margin: 0 0 1rem;
+  }
+  div > :global(:not(.clean)) {
     flex: 1 1;
+    min-width: 150px;
+    margin: 2px;
   }
 </style>
