@@ -9,18 +9,6 @@
       label={type.name || '404'}
       on:click={() => catalog.chType(type.id || null)} />
   {/if}
-  {#if $router.prod}
-    <Button
-      clean
-      label={prod.name || '404'}
-      on:click={() => catalog.chProd(prod.id || null)} />
-  {/if}
-  {#if $router.model}
-    <Button
-      clean
-      label={model.name || '404'}
-      on:click={() => catalog.chModel(model.id || null)} />
-  {/if}
   {#if $router.cat}
     <Button
       clean
@@ -33,6 +21,18 @@
       label={subcat.name || '404'}
       on:click={() => catalog.chSubcat(subcat.id || null)} />
   {/if}
+  {#if $router.prod}
+    <Button
+      clean
+      label={prod.name || '404'}
+      on:click={() => catalog.chProd(prod.id || null)} />
+  {/if}
+  {#if $router.model}
+    <Button
+      clean
+      label={model.name || '404'}
+      on:click={() => catalog.chModel(model.id || null)} />
+  {/if}
 </div>
 
 <script>
@@ -41,12 +41,28 @@
   import { Button } from 'forui'
 
   $: type = $catalog.type.find(type => type.id === $router.type) || {}
-  $: prod = $catalog.prod.find(prod => prod.id === $router.prod) || {}
-  $: cat = $catalog.cat.find(cat => cat.id === $router.cat) || {}
+  $: prod =
+    $catalog.prod.find(
+      prod => prod.id === $router.prod && prod.type === $router.type
+    ) || {}
+  $: cat =
+    $catalog.cat.find(
+      cat => cat.id === $router.cat && cat.type === $router.type
+    ) || {}
   $: model =
-    $catalog.model.find(model => model.id === $router.model) || {}
+    $catalog.model.find(
+      model =>
+        model.id === $router.model &&
+        model.prod === $router.prod &&
+        model.type === $router.type
+    ) || {}
   $: subcat =
-    $catalog.subcat.find(subcat => subcat.id === $router.subcat) || {}
+    $catalog.subcat.find(
+      subcat =>
+        subcat.id === $router.subcat &&
+        subcat.type === $router.type &&
+        subcat.cat === $router.cat
+    ) || {}
 </script>
 
 <style>
