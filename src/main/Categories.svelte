@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <Search />
 </div>
 {#if $router.type}
@@ -63,9 +63,10 @@
       </Button>
     {/each}
   </div>
-{/if}
+{/if}-->
 
 <script>
+  import { type } from '../stores/api.js'
   import BreadCrumbs from './BreadCrumbs.svelte'
   import { catalog } from '../stores/test.js'
   import router from 'svelte3-router'
@@ -145,7 +146,7 @@
     position: relative;
   }
   div:first-child {
-    margin: 0 2px 1rem;
+    margin: 0 2px 0.6rem;
   }
   div > :global(:not(.clean)) {
     flex: 1 1;
