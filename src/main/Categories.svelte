@@ -65,6 +65,12 @@
   </div>
 {/if}-->
 
+<div>
+{#each $type.store as type}
+  <Button label={type.name} />
+{/each}
+</div>
+
 <script>
   import { type } from '../stores/api.js'
   import BreadCrumbs from './BreadCrumbs.svelte'
@@ -141,9 +147,6 @@
   }
   :global(div) {
     margin: 7px 2px 0;
-  }
-  :global(main > div) {
-    position: relative;
   }
   div:first-child {
     margin: 0 2px 0.6rem;
