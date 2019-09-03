@@ -66,7 +66,7 @@
 {/if}-->
 
 <div>
-{#each $type.store as type}
+{#each $type as type}
   <Button label={type.name} />
 {/each}
 </div>
